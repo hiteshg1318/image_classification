@@ -1,136 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Classification Project</title>
-</head>
-<body>
-    <h1>📸 Image Classification Project 🚀</h1>
-    <p>Welcome to the <strong>Image Classification</strong> repository! This project is designed to provide a robust framework for classifying images using state-of-the-art deep learning techniques. Whether you're a beginner exploring machine learning or an expert fine-tuning models, this repository has something for everyone.</p>
 
-    <hr>
+# Image Classification
 
-    <h2>🌟 Features</h2>
-    <ul>
-        <li><strong>Customizable Architecture</strong>: Support for various deep learning models like CNNs, ResNet, and more.</li>
-        <li><strong>Easy-to-Use Codebase</strong>: Modular, well-documented, and beginner-friendly.</li>
-        <li><strong>High Accuracy</strong>: Implements advanced techniques for improved performance.</li>
-        <li><strong>End-to-End Pipeline</strong>: Covers data preprocessing, model training, evaluation, and deployment.</li>
-        <li><strong>Pre-trained Models</strong>: Utilize transfer learning to reduce training time and improve results.</li>
-        <li><strong>Visualization Tools</strong>: Generate detailed metrics and visualizations to understand model performance.</li>
-    </ul>
+![Python](https://img.shields.io/badge/Python-3.9-blue)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.0-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-    <hr>
+## Overview
 
-    <h2>📚 Table of Contents</h2>
-    <ol>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#usage">Usage</a></li>
-        <li><a href="#dataset-preparation">Dataset Preparation</a></li>
-        <li><a href="#model-training">Model Training</a></li>
-        <li><a href="#evaluation">Evaluation</a></li>
-        <li><a href="#contributing">Contributing</a></li>
-        <li><a href="#license">License</a></li>
-    </ol>
+This project focuses on **Image Classification** using machine learning and deep learning techniques. It provides a pipeline for loading image datasets, preprocessing them, and training a model to classify images into predefined categories. The project uses Python and TensorFlow for implementation and can be easily extended to various use cases.
 
-    <hr>
+---
 
-    <h2 id="installation">🛠️ Installation</h2>
-    <p>Follow these steps to set up the project locally:</p>
-    <ol>
-        <li>Clone the repository:
-            <pre><code>git clone https://github.com/hiteshg1318/image_classification.git
-cd image_classification</code></pre>
-        </li>
-        <li>Install dependencies:
-            <pre><code>pip install -r requirements.txt</code></pre>
-        </li>
-        <li>You're all set! 🎉</li>
-    </ol>
+## Features
 
-    <hr>
+- **Customizable Model**: Build your own image classification model using TensorFlow/Keras.
+- **Efficient Preprocessing**: Includes image resizing, normalization, and augmentation.
+- **Metrics Tracking**: Detailed metrics and loss tracking for better model evaluation.
+- **Extensible Dataset Handling**: Load datasets from directories or external sources.
+- **User-Friendly Documentation**: Clear and concise steps to set up and run the project.
 
-    <h2 id="usage">🚀 Usage</h2>
-    <h3>Running the Pipeline</h3>
-    <ol>
-        <li><strong>Prepare your dataset</strong>: Place images into respective class folders.</li>
-        <li><strong>Run training</strong>:
-            <pre><code>python train.py --data_dir path/to/dataset --epochs 10 --batch_size 32</code></pre>
-        </li>
-        <li><strong>Evaluate the model</strong>:
-            <pre><code>python evaluate.py --model_path path/to/saved_model.pth</code></pre>
-        </li>
-        <li><strong>Make Predictions</strong>:
-            <pre><code>python predict.py --image_path path/to/image.jpg</code></pre>
-        </li>
-    </ol>
+---
 
-    <hr>
+## Installation
 
-    <h2 id="dataset-preparation">📁 Dataset Preparation</h2>
-    <p>Organize your dataset as follows:</p>
-    <pre><code>dataset/
-├── train/
-│   ├── class1/
-│   │   ├── img1.jpg
-│   │   ├── img2.jpg
-│   ├── class2/
-│       ├── img1.jpg
-│       ├── img2.jpg
-├── val/
-│   ├── class1/
-│   │   ├── img1.jpg
-│   │   ├── img2.jpg
-│   ├── class2/
-│       ├── img1.jpg
-│       ├── img2.jpg
-</code></pre>
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/hiteshg1318/image_classification.git
+   cd image_classification
+   ```
 
-    <hr>
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-    <h2 id="model-training">🏋️‍♂️ Model Training</h2>
-    <p>To train the model, customize the parameters in <code>train.py</code> or pass arguments directly:</p>
-    <pre><code>python train.py --data_dir path/to/dataset --epochs 20 --lr 0.001 --batch_size 64</code></pre>
+3. **Set up your dataset**
+   - Organize your dataset into a structure like:
+     ```
+     dataset/
+     ├── train/
+     │   ├── class1/
+     │   │   ├── img1.jpg
+     │   │   ├── img2.jpg
+     │   └── class2/
+     │       ├── img3.jpg
+     ├── val/
+     │   ├── class1/
+     │   └── class2/
+     ```
 
-    <hr>
+---
 
-    <h2 id="evaluation">📊 Evaluation</h2>
-    <p>After training, evaluate your model's performance using:</p>
-    <pre><code>python evaluate.py --model_path path/to/model.pth</code></pre>
-    <p>The script generates a detailed report with accuracy, precision, recall, and confusion matrix.</p>
+## Usage
 
-    <hr>
+1. **Preprocess the Dataset**
+   Modify the `config.py` file to point to your dataset directory:
+   ```python
+   DATASET_DIR = "./dataset"
+   IMG_SIZE = (224, 224)
+   ```
 
-    <h2>✨ Visualization</h2>
-    <p>Leverage tools like <code>matplotlib</code> for loss/accuracy trends:</p>
-    <pre><code>python visualize.py</code></pre>
+2. **Train the Model**
+   Run the training script:
+   ```bash
+   python train.py
+   ```
 
-    <hr>
+3. **Evaluate the Model**
+   Evaluate the trained model using:
+   ```bash
+   python evaluate.py
+   ```
 
-    <h2 id="contributing">🤝 Contributing</h2>
-    <p>We welcome contributions! To contribute:</p>
-    <ol>
-        <li>Fork the repository.</li>
-        <li>Create a new branch: <code>git checkout -b feature-name</code></li>
-        <li>Commit changes: <code>git commit -m "Add feature"</code></li>
-        <li>Push the branch: <code>git push origin feature-name</code></li>
-        <li>Submit a pull request.</li>
-    </ol>
+4. **Inference**
+   Perform inference on new images:
+   ```bash
+   python predict.py --image path_to_image.jpg
+   ```
 
-    <hr>
+---
 
-    <h2 id="license">📜 License</h2>
-    <p>This repository is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
+## File Structure
 
-    <hr>
+```
+image_classification/
+├── dataset/           # Placeholder for datasets
+├── models/            # Trained models
+├── src/
+│   ├── data/          # Data loading and preprocessing scripts
+│   ├── models/        # Model architecture definitions
+│   ├── utils/         # Helper functions
+├── config.py          # Configuration file
+├── train.py           # Training script
+├── evaluate.py        # Evaluation script
+├── predict.py         # Inference script
+├── requirements.txt   # Dependencies
+└── README.md          # Project documentation
+```
 
-    <h2>🙌 Acknowledgments</h2>
-    <p>A big thanks to the open-source community for tools and libraries that made this project possible. ❤️</p>
+---
 
-    <hr>
+## Results
 
-    <h3>🔗 Connect</h3>
-    <p>Feel free to raise an issue or start a discussion. Let’s build something amazing together! 🚀</p>
-</body>
-</html>
+| Metric      | Value       |
+|-------------|-------------|
+| Accuracy    | **70%** |
+
+
+
+
+---
+
+## Contributing
+
+We welcome contributions! Follow these steps:
+
+1. Fork the repository.
+2. Create a branch: `git checkout -b feature-branch`.
+3. Commit your changes: `git commit -m 'Add a feature'`.
+4. Push to the branch: `git push origin feature-branch`.
+5. Open a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contact
+
+For any queries or suggestions, feel free to reach out:
+
+- **Author**: Hitesh Gupta  
+- **Email**: hitesh.gupta@example.com  
+- **GitHub**: [Hitesh Gupta](https://github.com/hiteshg1318)
+
+---
+
+## Acknowledgments
+
+- [TensorFlow Documentation](https://www.tensorflow.org/)
+- [Keras API](https://keras.io/)
